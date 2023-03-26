@@ -19,10 +19,15 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    isAdmin: {
-        type: Boolean, 
-        default: false,
-        required: true,
+    privilege: {
+        isAdmin: {
+            type: Boolean,
+            default: false,
+        },
+        role: {
+            type: String,
+            default: 'visitor',
+        },
     }
 })
 

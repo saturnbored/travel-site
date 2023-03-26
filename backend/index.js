@@ -32,7 +32,7 @@ app.use(cors())
 /* Routes */
 app.use(authRouter)
 
-app.use('/admin', checkRole, verifyJWT, adminRouter)
+app.use('/admin', verifyJWT, checkRole,  adminRouter)
 
 app.use((req, res, next) => {
     console.log('Middle Ware')

@@ -13,8 +13,11 @@ function verifyJWT(req, res, next) {
                         },
                     ],
                 })
+                console.log('inside if');
             } else {
                 req.user = result
+                
+                console.log('user in middleware:', result);
                 return next()
             }
         })

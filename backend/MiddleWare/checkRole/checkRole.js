@@ -1,18 +1,15 @@
 const express = require('express')
-const { ROLES } = require('../role.constants');
 
-const checkRole = (req, res, next) => {
-    const role = +req.headers.role
-    if (role === ROLES.ADMIN || role === ROLES.USER) {
-        return next()
-    } else {
-        return res.status(401).json({
-            errors: [
-                {
-                    msg: 'Access Denied....',
-                },
-            ],
-        })
+const checkRole = async (req, res, next) => {
+    try {
+        const isAdmin = req.user.isAdmin;
+        if(isAdmin)
+            next();
+        else
+            throw new Error('Access denied');
+    } catch (err) {
+        console.log(err.message);
+        res.sendStatus(500);
     }
 }
 

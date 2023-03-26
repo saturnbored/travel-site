@@ -21,7 +21,15 @@ class AuthService {
         user.email = userData.email
         user.password = password
         user.place = userData.place
-        const response = await User.create(user)
+        const createdUser = await User.create(user);
+        
+        const response = {
+            name: createdUser.name, 
+            email: createdUser.email,
+            place: createdUser.place,
+            privilege: createdUser.privilege,
+        }
+
         return response
     }
 

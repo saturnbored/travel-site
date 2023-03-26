@@ -9,22 +9,30 @@ const router = express.Router()
 const adminController = new AdminController()
 const tourController = new TourController()
 
-// Reading all the requests
-// router.get("/request/tour", adminController.viewAllTourRequests);
-// router.get("/request/hotel", adminController.viewAllHotelRequests);
-
-// Read Operations
-// router.get('/all/users', adminController.getAllUsers) // get all users
-// router.get('/package/orders', adminController.adminAllTourOrders) // get all tour orders
-
 // create new packages and add to the database
-router.post('/package', tourController.addTour)
-router.patch('/package', tourController.updateTour)
-router.delete('/package/:id', tourController.removePackage)
-//banner update
+// router.post('/package', tourController.addTour)
 
-router.patch('/new', adminController.addAdmin)
-router.patch('/banner', adminController.changeBanner);
+// update a package
+// router.patch('/package', tourController.updateTour)
+
+//banner update
+// router.delete('/package/:id', tourController.removePackage)
+
+// make new admin
+router.patch('/team/new', adminController.addAdmin)
+
+// update the role of an admin
+router.patch('/team/update', adminController.updateAdminRole);
+
+// router.patch('/banner', adminController.changeBanner);
+router.patch('/team/remove', adminController.removeAdminRights)
+
+router.get('/team', adminController.getAllAdmins);
+
+router.get('/banners', adminController.getAllBanners);
+
+router.patch('/banners', adminController.updateBanner);
+
 
 // router.post(
 //     '/update',
