@@ -6,10 +6,10 @@ import Reviews from "../Components/Reviews";
 import Certificate from "../Components/Certificate";
 import AboutBanner from "../Components/AboutBanner";
 
-const AboutPage = () => {
+const AboutPage = ({isLoggedIn, setFetchAgain, fetchAgain}) => {
   return (
     <div>
-      <Navbar />
+      <Navbar isLoggedIn = {isLoggedIn} setFetchAgain = {setFetchAgain} fetchAgain={fetchAgain} />
       <AboutBanner />
       <Team />
       <Reviews />

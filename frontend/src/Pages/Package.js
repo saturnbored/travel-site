@@ -8,10 +8,10 @@ import PackageInfo from "../Components/PackageInfo";
 import TravelForm from "../Components/TravelForm";
 import PackageBanner from "../Components/PackageBanner";
 
-const Package = () => {
+const Package = ({isLoggedIn, setFetchAgain, fetchAgain}) => {
   return (
     <div>
-      <Navbar />
+      <Navbar isLoggedIn = {isLoggedIn} setFetchAgain = {setFetchAgain} fetchAgain={fetchAgain} />
       <PackageBanner />
       <Box
         display="flex"

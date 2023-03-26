@@ -30,18 +30,12 @@ const Team = () => {
           flexDir={"column"}
           justifyContent="space-between"
           flexWrap={"wrap"}
-          alignContent = "center"
+          alignContent="center"
         >
-          <Text
-          fontWeight={"bold"}
-          textColor = "#3A3A3A"
-          fontSize={"32px"}
-          >Our Team</Text>
-          <Text
-          textColor={"#5A5A5A"}
-          fontSize = "16px"
-          maxWidth={"400px"}
-          >
+          <Text fontWeight={"bold"} textColor="#3A3A3A" fontSize={"32px"}>
+            Our Team
+          </Text>
+          <Text textColor={"#5A5A5A"} fontSize="16px" maxWidth={"400px"}>
             Quidam officiis similique sea ei, vel tollit indoctum efficiendi ei,
             at nihil tantas platonem eos.
           </Text>
@@ -50,7 +44,7 @@ const Team = () => {
           display="flex"
           flexDir={{ lg: "row", md: "column", sm: "column", base: "column" }}
           justifyContent="space-around"
-          gap={{lg: "10px", md: "20px", sm: "10px", base: "10px"}}
+          gap={{ lg: "10px", md: "20px", sm: "10px", base: "10px" }}
           px={{ sm: "20px", base: "20px" }}
         >
           <Box
@@ -70,7 +64,7 @@ const Team = () => {
             width={{ lg: "10%", md: "100%", sm: "100%", base: "100%" }}
             flexWrap={"wrap"}
             alignContent="flex-end"
-            gap={{lg: "15px", md: "15px", sm: "5px", base: "2px"}}
+            gap={{ lg: "15px", md: "15px", sm: "5px", base: "2px" }}
           >
             {images.map((i) => (
               <Button
@@ -79,15 +73,18 @@ const Team = () => {
                 bg="transparent"
                 _hover={{ bg: "transparent" }}
               >
-                <Image src={i} height={{lg: "50px", md: "50px", sm: "40px", base: "30px"}} />
+                <Image
+                  src={i}
+                  height={{ lg: "50px", md: "50px", sm: "40px", base: "30px" }}
+                />
               </Button>
             ))}
           </Box>
           <Box
             display="flex"
             flexDir={{ lg: "row", md: "row", sm: "column", base: "column" }}
-            width = {{lg: "90%"}}
-            pr = {{lg:"40px"}}
+            width={{ lg: "90%" }}
+            pr={{ lg: "40px" }}
           >
             <Box
               display="flex"
@@ -95,7 +92,10 @@ const Team = () => {
               width={{ lg: "30%", md: "100%", sm: "100%", base: "100%" }}
               // height = {{sm: "10%"}}
             >
-              <Image src={founder} width={{lg: "90%", md: "90%", sm: "60%", base: "100%"}} />
+              <Image
+                src={founder}
+                width={{ lg: "90%", md: "90%", sm: "60%", base: "100%" }}
+              />
             </Box>
             <Box
               display={"flex"}
@@ -118,9 +118,9 @@ const Team = () => {
                   sm: "center",
                   base: "center",
                 }}
-                fontSize = "24px"
+                fontSize="24px"
                 fontWeight={"bold"}
-                textColor = "#3282AD"
+                textColor="#3282AD"
               >
                 Sebastian Bennett
               </Text>
@@ -132,9 +132,9 @@ const Team = () => {
                   sm: "center",
                   base: "center",
                 }}
-                textColor = "#3A3A3A"
+                textColor="#3A3A3A"
                 fontWeight={"semibold"}
-                fontSize = "16px"
+                fontSize="16px"
               >
                 FOUNDER, LEAD PHOTOGRAPHER, CEO
               </Text>

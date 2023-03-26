@@ -14,31 +14,52 @@ import {
   useColorModeValue,
   Link,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/NavBar";
 
-export default function SignUp() {
+import { useNavigate } from "react-router-dom";
+
+export default function SignUp({isLoggedIn}) {
+
+  console.log('xxxx', isLoggedIn);
+
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [place, setPlace] = useState("");
   const [name, setName] = useState("");
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(isLoggedIn?.status){
+      console.log('cum cum');
+      navigate('/home');
+    }
+  })
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:8080/signup", {
+      let res = await fetch("http://localhost:8080/signup", {
         method: "POST",
-        body: JSON.stringify({
-          email,
-          password,
-          name,
-          place,
-        }),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({user : {
+            email,
+            password,
+            name,
+            place,
+          }
+        })
       });
+      res = await res.json();
       console.log(res);
+      navigate('/signin');
     } catch (err) {
       console.log(err.message);
     }
@@ -46,7 +67,7 @@ export default function SignUp() {
 
   return (
     <Box>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} />
       <Flex
         minH={"100vh"}
         align={"center"}

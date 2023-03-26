@@ -1,29 +1,24 @@
 import { Box } from "@chakra-ui/react";
-import Banner from "../Components/Banner";
+import TeamBanner from "../Components/TeamBanner";
 import Flights from "../Components/Flights";
 import Footer from "../Components/Footer";
 import Island from "../Components/Island";
 import Navbar from "../Components/NavBar";
 import Packages from "../Components/Packages";
 import Testimonials from "../Components/Testimonials";
+import TeamMembers from "../Components/TeamMembers";
+import AdminPanel from "../Components/AdminPanel";
 
-const HomePage = ({isLoggedIn, setFetchAgain, fetchAgain}) => {
-
-  console.log('aedfasefsd', isLoggedIn);
-
+const Admin = ({isLoggedIn, setFetchAgain, fetchAgain}) => {
   return (
     <>
       {/* <Box display={"flex"} flexDir = "column" justifyContent={"center"} gap = "100px"> */}
-      <Navbar isLoggedIn={isLoggedIn} setFetchAgain = {setFetchAgain} fetchAgain={fetchAgain} />
-      <Banner />
-      <Flights />
-      <Packages />
-      <Island />
-      <Testimonials />
+      <Navbar isLoggedIn = {isLoggedIn} setFetchAgain = {setFetchAgain} fetchAgain={fetchAgain} />
+      <AdminPanel />
       <Footer />
       {/* </Box> */}
     </>
   );
 };
 
-export default HomePage;
+export default Admin;

@@ -12,13 +12,24 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/NavBar";
 
-export default function SignIn() {
+import { useNavigate } from "react-router-dom";
+
+export default function SignIn({isLoggedIn, setFetchAgain, fetchAgain}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if(isLoggedIn?.status){
+      navigate('/home');
+    }
+  })
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +47,9 @@ export default function SignIn() {
       });
       res = await res.json();
       console.log(res);
-      localStorage.setItem("token", res.token);
+      localStorage.setItem("session", JSON.stringify(res));
+      setFetchAgain(!fetchAgain);
+      navigate('/home');
     } catch (err) {
       console.log(err.message);
     }
@@ -44,7 +57,7 @@ export default function SignIn() {
 
   return (
     <Box>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} setFetchAgain = {setFetchAgain} fetchAgain={fetchAgain} />
       <Flex
         minH={"100vh"}
         align={"center"}

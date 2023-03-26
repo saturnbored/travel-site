@@ -59,7 +59,7 @@ export default function Banner() {
           minH={{ lg: "100vh", md: "100vh", sm: "60vh", base: "60vh" }}
           //   alignContent="center"
           alignItems={"space-between"}
-          justifyContent="center"
+          justifyContent="space-between"
         >
           <Heading
             lineHeight={1.1}
@@ -101,6 +101,7 @@ export default function Banner() {
               The Exotic
             </Text>
             <br />
+
             <Text as={"span"} color={"blue.400"}>
               Lakshadweep
             </Text>
